@@ -1,6 +1,6 @@
 # To calculate saving and interest
-minc = input ("Enter your Monthly Income ")
-mexpen = input ("Enter your Monthly Expense ")
+minc = input ("Enter your monthly income: ")
+mexpen = input ("Enter your total monthly expenses: ")
 minc = float(minc)
 mexpen = float (mexpen)
 sav = minc - mexpen
