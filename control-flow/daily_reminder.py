@@ -23,4 +23,4 @@ if time_bound == 'yes':
     reminder += " This task is time-bound and requires immediate attention today!"
 
 # Print the customized reminder
-print(reminder)
+print(f"Reminder: {reminder}")
