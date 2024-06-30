@@ -24,4 +24,4 @@ match operation:
 
 # Output the result
 if result is not None:
-    print(f"The result of {num1} {operation} {num2} is {result}.")
+    print(f"The result is {result}.")
