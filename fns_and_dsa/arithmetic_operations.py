@@ -1,14 +1,16 @@
-def perform_operation(num1: float, num2: float, operation: str) -> float:
-    """
-    Performs arithmetic operations on two numbers.
+# arithmetic_operations.py
 
-    Args:
-        num1 (float): First operand.
-        num2 (float): Second operand.
-        operation (str): Operation to perform ('add', 'subtract', 'multiply', or 'divide').
+def perform_operation(num1, num2, operation):
+    """
+    Performs arithmetic operations on two numbers based on the operation specified.
+
+    Parameters:
+    - num1 (float): The first number for the operation.
+    - num2 (float): The second number for the operation.
+    - operation (string): The operation to be performed. Can be 'add', 'subtract', 'multiply', or 'divide'.
 
     Returns:
-        float: Result of the arithmetic operation.
+    - float or str: Result of the arithmetic operation or an error message.
     """
     if operation == 'add':
         return num1 + num2
@@ -17,11 +19,9 @@ def perform_operation(num1: float, num2: float, operation: str) -> float:
     elif operation == 'multiply':
         return num1 * num2
     elif operation == 'divide':
-        try:
+        if num2 == 0:
+            return "Division by zero is not allowed"
+        else:
             return num1 / num2
-        except ZeroDivisionError:
-            return "Error: Division by zero"
-
-# Example usage:
-result = perform_operation(10.0, 5.0, 'add')
-print(f"Result: {result}")
+    else:
+        return "Invalid operation"
