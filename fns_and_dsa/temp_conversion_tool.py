@@ -1,16 +1,15 @@
 # Define global conversion factors
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+
 FAHRENHEIT_TO_CELSIUS_OFFSET = 32
 CELSIUS_TO_FAHRENHEIT_OFFSET = 32
 
 def convert_to_celsius(fahrenheit):
     """
     Converts a temperature from Fahrenheit to Celsius.
-
     Parameters:
     - fahrenheit (float): The temperature in Fahrenheit.
-
     Returns:
     - float: The temperature converted to Celsius.
     """
