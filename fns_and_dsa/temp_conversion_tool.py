@@ -52,10 +52,10 @@ def main():
                 celsius_temp = convert_to_celsius(fahrenheit_temp)
                 print(f"{fahrenheit_temp}°F is equal to {celsius_temp:.2f}°C")
             else:
-                raise ValueError("Invalid temperature unit. Please enter a temperature ending with 'C' or 'F'.")
+                raise ValueError("Invalid temperature. Please enter a numeric value.")
         except ValueError:
             # Handle invalid temperature input
-            print("Invalid temperature. Please enter a numeric value followed by 'C' or 'F'.")
+            print("Invalid temperature. Please enter a numeric value.")
 
         # Ask if the user wants to perform another conversion
         another_conversion = input("Do you want to perform another conversion? (yes/no): ").strip().lower()
