@@ -1,67 +1,70 @@
-# Define Global Conversion Factors
+# Define global conversion factors
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
+
 FAHRENHEIT_TO_CELSIUS_OFFSET = 32
 CELSIUS_TO_FAHRENHEIT_OFFSET = 32
 
 def convert_to_celsius(fahrenheit):
     """
-    Convert temperature from Fahrenheit to Celsius.
-
+    Converts a temperature from Fahrenheit to Celsius.
     Parameters:
-    - fahrenheit (float): Temperature in Fahrenheit.
-
+    - fahrenheit (float): The temperature in Fahrenheit.
     Returns:
-    - float: Temperature in Celsius.
+    - float: The temperature converted to Celsius.
     """
-    global FAHRENHEIT_TO_CELSIUS_FACTOR, FAHRENHEIT_TO_CELSIUS_OFFSET
-    # Convert Fahrenheit to Celsius using the formula: (F - 32) * 5/9
     celsius = (fahrenheit - FAHRENHEIT_TO_CELSIUS_OFFSET) * FAHRENHEIT_TO_CELSIUS_FACTOR
     return celsius
 
+
 def convert_to_fahrenheit(celsius):
     """
-    Convert temperature from Celsius to Fahrenheit.
+    Converts a temperature from Celsius to Fahrenheit.
 
     Parameters:
-    - celsius (float): Temperature in Celsius.
+    - celsius (float): The temperature in Celsius.
 
     Returns:
-    - float: Temperature in Fahrenheit.
+    - float: The temperature converted to Fahrenheit.
     """
-    global CELSIUS_TO_FAHRENHEIT_FACTOR, CELSIUS_TO_FAHRENHEIT_OFFSET
-    # Convert Celsius to Fahrenheit using the formula: C * 9/5 + 32
     fahrenheit = celsius * CELSIUS_TO_FAHRENHEIT_FACTOR + CELSIUS_TO_FAHRENHEIT_OFFSET
     return fahrenheit
 
+
 def main():
     """
-    Main function to handle user interaction for temperature conversion.
+    Main function to handle user interaction and perform temperature conversions.
     """
     print("Temperature Conversion Tool")
-   # print("Choose the conversion type:")
-   # print("F. Fahrenheit to Celsius")
-   # print("C. Celsius to Fahrenheit")
 
-    Temp1 = float(input("Enter the temperature to convert: "))
-    choice = input("Is this temperature in Celsius or Fahrenheit? (C/F): ")
-    if choice == 'F':
+    while True:
         try:
-           # fahrenheit = float(input("Enter temperature in Fahrenheit: "))
-            celsius = convert_to_celsius(Temp1)
-            print(f"{Temp1}°F is equal to {celsius:.2f}°C")
+            # Prompt the user for the temperature value and the unit
+            temp_input = input("Enter the temperature to convert: ")
+            Unit_1 = input ("Is this temperature in Celsius or Fahrenheit? (C / F): ")
+            if Unit_1 == 'C':
+                # Extract the numeric value
+                celsius_temp = float(temp_input)
+                # Convert to Fahrenheit
+                fahrenheit_temp = convert_to_fahrenheit(celsius_temp)
+                print(f"{celsius_temp}°C is equal to {fahrenheit_temp:.2f}°F")
+            elif Unit_1 == 'F':
+                # Extract the numeric value
+                fahrenheit_temp = float(temp_input)
+                # Convert to Celsius
+                celsius_temp = convert_to_celsius(fahrenheit_temp)
+                print(f"{fahrenheit_temp}°F is equal to {celsius_temp:.2f}°C")
+            else:
+                raise ValueError("Invalid temperature unit. Please enter a temperature ending with 'C' or 'F'.")
         except ValueError:
-            print("Invalid temperature. Please enter a numeric value.")
-    
-    elif choice == 'C':
-        try:
-            #celsius = float(input("Enter temperature in Celsius: "))
-            fahrenheit = convert_to_fahrenheit(Temp1)
-            print(f"{Temp1}°C is equal to {fahrenheit:.2f}°F")
-        except ValueError:
-            print("Invalid temperature. Please enter a numeric value.")
-    else:
-        print("Invalid choice. Please enter 1 or 2.")
+            # Handle invalid temperature input
+            print("Invalid temperature. Please enter a numeric value followed by 'C' or 'F'.")
+
+        # Ask if the user wants to perform another conversion
+        another_conversion = input("Do you want to perform another conversion? (yes/no): ").strip().lower()
+        if another_conversion != 'yes':
+            break
+    print("Goodbye!")
 
 if __name__ == "__main__":
     main()
