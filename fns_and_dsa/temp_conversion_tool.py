@@ -38,7 +38,7 @@ def main():
         try:
             # Prompt the user for the temperature value and the unit
             temp_input = input("Enter the temperature to convert: ")
-            Unit_1 = input ("Is this temperature in Celsius or Fahrenheit? (C / F): ")
+            Unit_1 = input ("Is this temperature in Celsius or Fahrenheit? (C/F): ")
             if Unit_1 == 'C':
                 # Extract the numeric value
                 celsius_temp = float(temp_input)
