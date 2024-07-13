@@ -1,5 +1,3 @@
-# bank_account.py
-
 class BankAccount:
     def __init__(self, initial_balance=0):
         """
@@ -18,9 +16,8 @@ class BankAccount:
         """
         if amount > 0:
             self._account_balance += amount
-            print(f"Deposited ${amount:.2f}.")
         else:
-            print("Deposit amount must be positive.")
+            raise ValueError("Deposit amount must be positive.")
 
     def withdraw(self, amount):
         """
@@ -32,20 +29,17 @@ class BankAccount:
         if amount > 0:
             if amount <= self._account_balance:
                 self._account_balance -= amount
-                print(f"Withdrew ${amount:.2f}.")
                 return True
             else:
-                print("Insufficient funds.")
                 return False
         else:
-            print("Withdrawal amount must be positive.")
-            return False
+            raise ValueError("Withdrawal amount must be positive.")
 
-    def display_balance(self):
+    def get_balance(self):
         """
-        Display the current account balance.
+        Get the current account balance.
 
-        :return: None
+        :return: The current balance of the account.
         """
-        print(f"Current balance: ${self._account_balance:.2f}")
+        return self._account_balance
 
