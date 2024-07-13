@@ -1,45 +1,42 @@
+# bank_account.py
+
 class BankAccount:
     def __init__(self, initial_balance=0):
-        """
-        Initialize a new BankAccount instance with an optional initial balance.
-
-        :param initial_balance: The initial amount to deposit into the account, default is 0.
-        """
-        self._account_balance = initial_balance
+        """Initializes the BankAccount with an optional initial balance."""
+        self._account_balance = initial_balance  # Encapsulation: private attribute
 
     def deposit(self, amount):
-        """
-        Deposit a specified amount into the account.
-
-        :param amount: The amount to deposit.
-        :return: None
-        """
+        """Deposits a specified amount into the account."""
         if amount > 0:
             self._account_balance += amount
         else:
             raise ValueError("Deposit amount must be positive.")
 
     def withdraw(self, amount):
-        """
-        Withdraw a specified amount from the account if sufficient funds are available.
-
-        :param amount: The amount to withdraw.
-        :return: True if the withdrawal was successful, otherwise False.
-        """
-        if amount > 0:
-            if amount <= self._account_balance:
-                self._account_balance -= amount
-                return True
-            else:
-                return False
+        """Withdraws a specified amount from the account. Returns True if successful, otherwise False."""
+        if 0 < amount <= self._account_balance:
+            self._account_balance -= amount
+            return True
         else:
-            raise ValueError("Withdrawal amount must be positive.")
+            return False
 
-    def get_balance(self):
-        """
-        Get the current account balance.
+    def display_balance(self):
+        """Displays the current balance."""
+        print(f"Current Balance: ${self._account_balance:.2f}")
 
-        :return: The current balance of the account.
-        """
-        return self._account_balance
+# Ensure that this script can be tested independently (optional)
+if __name__ == "__main__":
+    # Simple tests for the BankAccount class
+    account = BankAccount(100)
+    account.display_balance()  # Should show $100.00
+    account.deposit(50)
+    account.display_balance()  # Should show $150.00
+    if account.withdraw(20):
+        print("Withdrawal successful.")
+    else:
+        print("Withdrawal failed.")
+    account.display_balance()  # Should show $130.00
+    if not account.withdraw(200):
+        print("Insufficient funds.")
+    account.display_balance()  # Should still show $130.00
 
