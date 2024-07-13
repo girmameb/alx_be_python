@@ -18,9 +18,9 @@ class BankAccount:
         """
         if amount > 0:
             self._account_balance += amount
-            print(f"Deposited: ${amount:.1f}")  # Format to one decimal place
+            print(f"Deposited: ${amount:.1f}")  # Print formatted to one decimal place
         else:
-            print("Deposit amount must be positive.")
+            raise ValueError("Deposit amount must be positive.")
 
     def withdraw(self, amount):
         """
@@ -32,14 +32,12 @@ class BankAccount:
         if amount > 0:
             if amount <= self._account_balance:
                 self._account_balance -= amount
-                print(f"Withdrew: ${amount:.1f}")  # Format to one decimal place
+                print(f"Withdrew: ${amount:.1f}")  # Print formatted to one decimal place
                 return True
             else:
-                print("Insufficient funds.")
-                return False
+                raise ValueError("Insufficient funds.")
         else:
-            print("Withdrawal amount must be positive.")
-            return False
+            raise ValueError("Withdrawal amount must be positive.")
 
     def display_balance(self):
         """
@@ -47,5 +45,5 @@ class BankAccount:
 
         :return: None
         """
-        print(f"Current Balance: ${self._account_balance:.1f}")  # Format to one decimal place
+        print(f"Current Balance: ${self._account_balance:.1f}")  # Print formatted to one decimal place
 
