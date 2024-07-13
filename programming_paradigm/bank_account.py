@@ -18,7 +18,7 @@ class BankAccount:
         """
         if amount > 0:
             self._account_balance += amount
-            print(f"Deposited ${amount:.2f}.")
+            print(f"Deposited: ${amount:.2f}")
         else:
             print("Deposit amount must be positive.")
 
@@ -32,7 +32,7 @@ class BankAccount:
         if amount > 0:
             if amount <= self._account_balance:
                 self._account_balance -= amount
-                print(f"Withdrew ${amount:.2f}.")
+                print(f"Withdrew: ${amount:.2f}")
                 return True
             else:
                 print("Insufficient funds.")
@@ -47,5 +47,5 @@ class BankAccount:
 
         :return: None
         """
-        print(f"Current balance: ${self._account_balance:.2f}")
+        print(f"Current Balance: ${self._account_balance:.2f}")
 
