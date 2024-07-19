@@ -38,7 +38,7 @@ class PrintBook(Book):
 
     def __str__(self):
         """Return a string representation of the PrintBook."""
-        return f"PrintBook: {self.title} by {self.author},Page Count: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
     def __repr__(self):
         """Return an official string representation of the PrintBook."""
