@@ -14,7 +14,7 @@ class Book:
 
     def __str__(self):
         """Return a human-readable string representation of the Book object."""
-        return f"'{self.title}' by {self.author}, published in {self.year}"
+        return f"{self.title} by {self.author}, published in {self.year}"
 
     def __repr__(self):
         """Return an official string representation of the Book object."""
